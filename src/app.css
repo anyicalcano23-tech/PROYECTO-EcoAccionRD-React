@@ -1,139 +1,83 @@
-/* =========================================
-   VARIABLES Y RESET 
-   ========================================= */
 :root {
-  --verde-primario: #2E7D32;
-  --verde-claro: #4CAF50;
-  --azul-agua: #1565C0;
-  --tierra: #8C6D53;
-  --fondo-claro: #F4F6F8;
-  --texto-oscuro: #1F2933;
-  --blanco: #FFFFFF;
-  --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --transicion: all 0.3s ease;
-}
-
-/* Variables para Modo Oscuro */
-.dark-mode {
-  --fondo-claro: #121212;
-  --texto-oscuro: #E2E8F0;
-  --blanco: #1E1E1E;
-  --sombra: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --verde-eco: #2e7d32;
+  --verde-claro: #4caf50;
+  --azul-agua: #0288d1;
+  --naranja-energia: #f57c00;
+  --gris-fondo: #f4f6f8;
+  --blanco: #ffffff;
+  --sombra: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 body {
-  background-color: var(--fondo-claro);
-  color: var(--texto-oscuro);
-  transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gris-fondo);
+  color: #333;
 }
 
-/* =========================================
-   ESTRUCTURA PRINCIPAL
-   ========================================= */
-.app-contenedor {
+.App {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  margin-bottom: 30px;
-  padding: 20px;
-  background: linear-gradient(135deg, var(--verde-primario), var(--azul-agua));
-  border-radius: 15px;
+.header {
+  background-color: #1b5e20;
   color: white;
-  box-shadow: var(--sombra);
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 5px;
-}
-
-/* Botón Modo Oscuro (Requisito +5%) */
-.btn-dark-mode {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--blanco);
-  color: var(--texto-oscuro);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: var(--sombra);
-  transition: var(--transicion);
-}
-
-.btn-dark-mode:hover {
-  transform: scale(1.05);
-}
-
-/* =========================================
-   FORMULARIO
-   ========================================= */
-.formulario {
-  background-color: var(--blanco);
   padding: 25px;
-  border-radius: 15px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 25px;
+  box-shadow: var(--sombra);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.header p {
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* Formulario */
+form {
+  background: var(--blanco);
+  padding: 20px;
+  border-radius: 12px;
   box-shadow: var(--sombra);
   margin-bottom: 30px;
   display: flex;
-  flex-direction: column;
   gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.formulario h2 {
-  color: var(--verde-primario);
-  text-align: center;
-}
-
-.formulario select, 
-.formulario input {
-  padding: 12px;
+form select, form input {
+  padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: var(--fondo-claro);
-  color: var(--texto-oscuro);
 }
 
-.formulario button {
-  padding: 12px;
-  background-color: var(--verde-primario);
+form button {
+  background-color: var(--verde-eco);
   color: white;
   border: none;
+  padding: 10px 20px;
   border-radius: 8px;
-  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: var(--transicion);
+  transition: background 0.2s;
 }
 
-.formulario button:hover {
+form button:hover {
   background-color: var(--verde-claro);
-  transform: translateY(-2px); /* Animación sutil */
 }
 
-/* =========================================
-   TARJETAS DE IMPACTO Y ANIMACIONES (+5%)
-   ========================================= */
-.panel-impacto h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.tarjetas {
+/* Tarjetas de Impacto */
+.tarjetas-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
@@ -141,62 +85,45 @@ header h1 {
 }
 
 .tarjeta {
-  background-color: var(--blanco);
+  background: var(--blanco);
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: var(--sombra);
+  border-radius: 12px;
   text-align: center;
-  transition: var(--transicion);
-  border-bottom: 5px solid var(--verde-primario);
+  box-shadow: var(--sombra);
+  border-bottom: 5px solid transparent;
 }
 
-/* Animación de flotar al pasar el mouse */
-.tarjeta:hover {
-  transform: translateY(-10px); 
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
+.tarjeta.arboles { border-color: var(--verde-eco); }
+.tarjeta.reciclaje { border-color: var(--azul-agua); }
+.tarjeta.energia { border-color: var(--naranja-energia); }
 
 .tarjeta h3 {
   font-size: 2rem;
-  color: var(--verde-primario);
-  margin-bottom: 10px;
+  margin: 10px 0 5px;
 }
 
-.tarjeta.reciclaje { border-bottom-color: var(--azul-agua); }
+.tarjeta.arboles h3 { color: var(--verde-eco); }
 .tarjeta.reciclaje h3 { color: var(--azul-agua); }
+.tarjeta.energia h3 { color: var(--naranja-energia); }
 
-.tarjeta.energia { border-bottom-color: #E8A317; }
-.tarjeta.energia h3 { color: #E8A317; }
-
-/* =========================================
-   HISTORIAL
-   ========================================= */
+/* Historial */
 .historial {
-  background-color: var(--blanco);
+  background: var(--blanco);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 12px;
   box-shadow: var(--sombra);
 }
 
 .historial ul {
-  list-style-type: none;
-  margin-top: 15px;
+  list-style: none;
+  padding: 0;
 }
 
 .historial li {
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid #eee;
-  color: var(--texto-oscuro);
-  animation: aparecer 0.5s ease-out;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Responsive para móviles */
-@media (max-width: 600px) {
-  header h1 { font-size: 1.8rem; }
-  .btn-dark-mode { top: 10px; right: 10px; padding: 8px; font-size: 0.8rem; }
+.historial li:last-child {
+  border-bottom: none;
 }

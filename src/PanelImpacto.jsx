@@ -1,48 +1,48 @@
 import React from 'react';
 
-function PanelImpacto({ acciones = [] }) {
+function PanelImpacto({ acciones }) {
   const totalArboles = acciones
-    .filter(a => a.tipo === 'arboles')
-    .reduce((acc, curr) => acc + curr.cantidad, 0);
+    .filter(a => a.tipo === 'Árboles Plantados')
+    .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   const totalReciclaje = acciones
-    .filter(a => a.tipo === 'reciclaje')
-    .reduce((acc, curr) => acc + curr.cantidad, 0);
+    .filter(a => a.tipo === 'Reciclaje (kg)')
+    .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   const totalEnergia = acciones
-    .filter(a => a.tipo === 'energia')
-    .reduce((acc, curr) => acc + curr.cantidad, 0);
+    .filter(a => a.tipo === 'Ahorro de Energía (kWh)')
+    .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   return (
-    <div className="tarjeta panel-impacto">
-      <h3>Panel de Impacto Ecológico 📊</h3>
+    <div className="panel-impacto">
+      <h2>Panel de Impacto Acumulado</h2>
       
-      <div className="grid-tarjetas">
-        <div className="card-metrica">
-          <h4>Árboles Plantados</h4>
-          <p className="numero">{totalArboles} 🌳</p>
+      <div className="tarjetas-container">
+        <div className="tarjeta arboles">
+          <h3>{totalArboles} Árboles</h3>
+          <p>Plantados</p>
         </div>
 
-        <div className="card-metrica">
-          <h4>Reciclaje Total</h4>
-          <p className="numero">{totalReciclaje} kg ♻️</p>
+        <div className="tarjeta reciclaje">
+          <h3>{totalReciclaje} kg</h3>
+          <p>Reciclados</p>
         </div>
 
-        <div className="card-metrica">
-          <h4>Ahorro de Energía</h4>
-          <p className="numero">{totalEnergia} kWh ⚡</p>
+        <div className="tarjeta energia">
+          <h3>{totalEnergia} kWh</h3>
+          <p>Ahorro Energético</p>
         </div>
       </div>
 
-      <div className="historial-container">
-        <h4>Historial de Acciones</h4>
+      <div className="historial">
+        <h3>Historial de Acciones</h3>
         {acciones.length === 0 ? (
           <p>No hay acciones registradas todavía.</p>
         ) : (
           <ul>
-            {acciones.map((item) => (
-              <li key={item.id}>
-                <span><strong>{item.tipo.toUpperCase()}</strong>: {item.cantidad} - {item.descripcion || 'Sin descripción'} ({item.fecha})</span>
+            {acciones.map((accion, index) => (
+              <li key={index}>
+                <strong>{accion.tipo}:</strong> {accion.cantidad} — {accion.detalle || 'Sin detalle'}
               </li>
             ))}
           </ul>
