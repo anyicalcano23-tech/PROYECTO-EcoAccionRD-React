@@ -1,3 +1,4 @@
 Se configuró el manejo del estado global en App.js.   
 Se implementó la lógica con useEffect y localStorage para garantizar la persistencia de los datos al recargar la página.   
 Pruebas de persistencia ejecutadas correctamente en el navegador.   
+Evidencia visual: Se adjunta captura evidencia.png con el diseño final de tarjetas
