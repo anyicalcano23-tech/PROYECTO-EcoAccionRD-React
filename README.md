@@ -27,7 +27,7 @@ EcoAcciónRD es una aplicación web interactiva desarrollada en React que permit
 
 ## 🚀 Enlace de Despliegue
 Puedes ver la aplicación funcionando en vivo aquí: 
-👉 **[EcoAcciónRD en Netlify](https://bespoke-lebkuchen-a2d11c.netlify.app)**
+👉 **[EcoAcciónRD en Netlify](https://creative-meringue-deda53.netlify.app)**
 
 ## ⚙️ Cómo ejecutar en local
 1. Clonar el repositorio.
