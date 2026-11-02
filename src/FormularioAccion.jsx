@@ -28,7 +28,7 @@ function FormularioAccion({ onAgregarAccion }) {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Tipo de Acción:</label>
-          <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
+            <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
             <option value="arboles">Árboles Plantados 🌳</option>
             <option value="reciclaje">Reciclaje (kg) ♻️</option>
             <option value="energia">Ahorro de Energía (kWh) ⚡</option>
