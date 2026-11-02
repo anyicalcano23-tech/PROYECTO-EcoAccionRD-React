@@ -1,16 +1,17 @@
 import React from 'react';
 
 function PanelImpacto({ acciones }) {
+    
   const totalArboles = acciones
-    .filter(a => a.tipo === 'Árboles Plantados')
+    .filter(a => a.tipo === 'arboles') 
     .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   const totalReciclaje = acciones
-    .filter(a => a.tipo === 'Reciclaje (kg)')
+    .filter(a => a.tipo === 'reciclaje') 
     .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   const totalEnergia = acciones
-    .filter(a => a.tipo === 'Ahorro de Energía (kWh)')
+    .filter(a => a.tipo === 'energia') 
     .reduce((sum, a) => sum + Number(a.cantidad), 0);
 
   return (
