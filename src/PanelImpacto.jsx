@@ -40,10 +40,10 @@ function PanelImpacto({ acciones }) {
         {acciones.length === 0 ? (
           <p>No hay acciones registradas todavía.</p>
         ) : (
-          <ul>
+            <ul>
             {acciones.map((accion, index) => (
               <li key={index}>
-                <strong>{accion.tipo}:</strong> {accion.cantidad} — {accion.detalle || 'Sin detalle'}
+                <strong>{accion.tipo}:</strong> {accion.cantidad} — {accion.descripcion || 'Sin detalle'}
               </li>
             ))}
           </ul>
